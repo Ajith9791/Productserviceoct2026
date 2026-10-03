@@ -16,4 +16,13 @@ public class ProductService {
     public FakestoreProductdto[] getallproducts(){
       return  fakestoreclient.getalllproducts();
     }
+    public FakestoreProductdto createproduct(FakestoreProductdto fakestoreProductdto){
+            return fakestoreclient.createproduct(fakestoreProductdto);
+    }
+    public FakestoreProductdto replaceproduct(int id, FakestoreProductdto fakestoreProductdto) {
+        return fakestoreclient.replaceproduct(id,fakestoreProductdto);
+    }
+    public boolean deleteproduct(int id){
+        return fakestoreclient.deleteproduct(id);
+    }
 }
