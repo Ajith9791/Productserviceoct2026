@@ -1,11 +1,14 @@
-package dev.ajith.Productderviceoct2026.Controller;
+package dev.ajith.ProductServiceoct2026.Controller;
 
-import dev.ajith.Productderviceoct2026.DTO.FakestoreProductdto;
-import dev.ajith.Productderviceoct2026.Service.ProductService;
+import dev.ajith.ProductServiceoct2026.DTO.FakestoreProductdto;
+import dev.ajith.ProductServiceoct2026.Model.Product;
+import dev.ajith.ProductServiceoct2026.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class ProductController {
@@ -29,10 +32,30 @@ public class ProductController {
 
 
     }
+    @PostMapping("/productrep")
+    public ResponseEntity<Product>createproduct(@RequestBody Product product) {
+        Product savedproduct=productService.saveproduct(product);
+        return new ResponseEntity<>(savedproduct,HttpStatus.CREATED);
+    }
     @PostMapping("/product")
     public FakestoreProductdto createproduct(@RequestBody FakestoreProductdto fakestoreProductdto) {
       return  productService.createproduct(fakestoreProductdto);
 
+    }
+    @GetMapping("/productrep")
+    public ResponseEntity<List<Product>> getallproducts() {
+        List<Product>allprod=productService.getallProducts();
+        return new ResponseEntity<>(allprod,HttpStatus.OK);
+    }
+    @GetMapping("/productrep/{id}")
+    public ResponseEntity<Product>getprod(@PathVariable int id) {
+        Product savedprod=productService.getProduct(id);
+        return new ResponseEntity<>(savedprod,HttpStatus.OK);
+    }
+    @DeleteMapping("/productrep/{id}")
+    public ResponseEntity<Boolean>dltprod(@PathVariable int productid){
+        boolean response=productService.deleteproduct(productid);
+        return new ResponseEntity<>(response,HttpStatus.OK);
     }
     @PutMapping("/product/{id}")
     public FakestoreProductdto replaceproduct(@PathVariable int id, @RequestBody FakestoreProductdto fakestoreProductdto) {

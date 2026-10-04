@@ -1,4 +1,4 @@
-package dev.ajith.Productderviceoct2026.DTO;
+package dev.ajith.ProductServiceoct2026.DTO;
 
 
 import lombok.Getter;

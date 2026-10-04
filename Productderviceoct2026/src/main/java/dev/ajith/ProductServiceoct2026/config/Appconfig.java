@@ -1,4 +1,4 @@
-package dev.ajith.Productderviceoct2026.config;
+package dev.ajith.ProductServiceoct2026.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;

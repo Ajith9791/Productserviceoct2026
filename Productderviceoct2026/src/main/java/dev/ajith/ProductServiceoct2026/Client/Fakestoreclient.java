@@ -1,6 +1,6 @@
-package dev.ajith.Productderviceoct2026.Client;
+package dev.ajith.ProductServiceoct2026.Client;
 
-import dev.ajith.Productderviceoct2026.DTO.FakestoreProductdto;
+import dev.ajith.ProductServiceoct2026.DTO.FakestoreProductdto;
 import org.jspecify.annotations.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
